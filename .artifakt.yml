@@ -1,0 +1,87 @@
+# Quickstart artifakt.yml
+title: Kubernetes GCP Cluster
+description: Kubernetes Cluster on GCP with terraform
+cloud_provider: gcp
+build_engine: terraform
+available_regions:
+  - northamerica-northeast1
+  - us-central1
+  - us-east1
+  - us-east4
+  - us-west1
+  - southamerica-east1
+  - europe-west1
+  - europe-west2
+  - europe-west3
+  - europe-west4
+  - asia-east1
+  - asia-northeast1
+  - asia-south1
+  - asia-southeast1
+  - australia-southeast1
+image: https://assets.artifakt.io/kubernetes.png
+category: other
+main_language: other
+licence:
+   code: mit
+   name: MIT
+tags:
+ - gcp
+ - Kubernetes
+ - Docker
+infrastructure:
+  diagram: https://assets.artifakt.io/kubernetes-gcp-terraform.png
+  build_time: 300  #in seconds 
+  cost_estimation:
+    monthly_price: 72.82 #in dollars per month 
+    details: calculated for 3 nodes n1-standard-1 in us-central-1
+
+inputs:	
+  - 
+    code: k8sname
+    name: k8s Name
+    description: cluster kubernetes name. 
+    category: data
+    type: text
+    default: myk8scluster
+    required:  true
+  - 
+    code: zone
+    name: Availability zone
+    description: Availability Zone where the cluster must be deploy. 
+    category: data
+    type: text
+    default: us-central-1a
+    required:  true
+  - 
+    code: pwd
+    name: ssh password
+    description: SSH password to connect to master node. 
+    category: data
+    type: text
+    default: P@ssw0rd
+    required:  true
+  - 
+    code: additional_zones1
+    name: Availability zone
+    description: Additional availability zone number 1  
+    category: data
+    type: text
+    default: us-central-1b
+    required:  true
+  - 
+    code: additional_zones2
+    name: Availability zone
+    description: Additional availability zone number 2 
+    category: data
+    type: text
+    default: us-central-1c
+    required:  true
+  - 
+    code: user 
+    name: ssh username
+    description: SSH username to connect to master node. 
+    category: data
+    type: text
+    default: user
+    required:  true
