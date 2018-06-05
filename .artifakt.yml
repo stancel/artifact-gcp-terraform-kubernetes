@@ -19,7 +19,7 @@ available_regions:
   - asia-south1
   - asia-southeast1
   - australia-southeast1
-image: https://assets.artifakt.io/kubernetes.png
+image: https://assets.artifakt.io/artifacts/kubernetes.png
 category: other
 main_language: other
 licence:
@@ -30,7 +30,7 @@ tags:
  - Kubernetes
  - Docker
 infrastructure:
-  diagram: https://assets.artifakt.io/kubernetes-gcp-terraform.png
+  diagram: https://assets.artifakt.io/artifacts/kubernetes-gcp-terraform.png
   build_time: 300  #in seconds 
   cost_estimation:
     monthly_price: 72.82 #in dollars per month 
