@@ -22,7 +22,7 @@ data "google_compute_zones" "available" {
 resource "google_container_cluster" "primary" {
   name               = "${random_string.clustername.result}"
   zone               = "${data.google_compute_zones.available.names[0]}"
-  initial_node_count = 3
+  initial_node_count = 1
 
   additional_zones = [
     "${data.google_compute_zones.available.names[1]}",
