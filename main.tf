@@ -1,16 +1,37 @@
+resource "random_string" "clustername" {
+  length  = 8
+  special = false
+  upper   = false
+  number  = false
+}
+
+resource "random_string" "user" {
+  length  = 8
+  special = false
+}
+
+resource "random_string" "pwd" {
+  length  = 16
+  special = true
+}
+
+data "google_compute_zones" "available" {
+  status = "UP"
+}
+
 resource "google_container_cluster" "primary" {
-  name               = "${var.k8sname}"
-  zone               = "${var.zone}"
-  initial_node_count = 1
+  name               = "${random_string.clustername.result}"
+  zone               = "${data.google_compute_zones.available.names[0]}"
+  initial_node_count = 3
 
   additional_zones = [
-    "${var.additional_zones1}",
-    "${var.additional_zones2}",
+    "${data.google_compute_zones.available.names[1]}",
+    "${data.google_compute_zones.available.names[2]}",
   ]
 
   master_auth {
-    username = "${var.user}"
-    password = "${var.pwd}"
+    username = "${random_string.user.result}"
+    password = "${random_string.pwd.result}"
   }
 
   node_config {

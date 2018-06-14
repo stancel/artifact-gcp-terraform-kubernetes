@@ -6,3 +6,11 @@ output "endpoint" {
 output "instance_group_urls" {
   value = "${google_container_cluster.primary.instance_group_urls}"
 }
+
+output "username" {
+  value = "${random_string.user.result}"
+}
+
+output "password" {
+  value = "${random_string.pwd.result}"
+}
